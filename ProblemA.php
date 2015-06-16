@@ -11,28 +11,26 @@ while($t <= $f)
 	$n = $l[0];
 
 	$arr[1] = $n;
+	$temp = $arr[1];
 
 	for($j = 2; $j <= $l[1]; $j++)
 	{
 		$total = $n * $j;
-		$temp = 0;
-		for($k = 1; $k < $j; $k++)
-		{
-			//echo $temp . "\n";
-		}
+
 		$leftover = $total - $temp;
-		//echo $leftover."\n";i
+
 		if($leftover < 0)
 		{
 			continue;
 		}
-		$arr[$k] = (int) ($leftover / $j);
+		$arr[$j] = (int) ($leftover / $j);
 		if($leftover % $j)
 		{
-			$arr[$k] += 1;//$leftover % $j;
+			$arr[$j] += 1;
 		}
+		$temp += $arr[$j] * $j;
 	}
-
+	
 	$total = 0;
 
 	foreach($arr as $a)
